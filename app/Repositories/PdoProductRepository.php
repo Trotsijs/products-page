@@ -17,6 +17,7 @@ class PdoProductRepository
     {
         return $this->connect()->createQueryBuilder();
     }
+
     private function getParams(): array
     {
         return [

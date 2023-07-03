@@ -4,21 +4,15 @@ namespace App\Models;
 
 class Product {
 
-    private int $id;
     private int $sku;
     private string $name;
     private float $price;
-    public function __construct($id, $sku, $name, $price) {
-        $this->id = $id;
+    public function __construct(int $sku, string $name, float $price) {
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
     public function getSku(): int
     {
         return $this->sku;

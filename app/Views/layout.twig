@@ -8,23 +8,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Products Page</title>
 </head>
-<body>
-<nav class="bg-slate-200 shadow-xl">
-    <ul class="flex gap-x-2 p-4 items-center justify-between">
+<body class="bg-gradient-to-b from-stone-200 to-slate-400 min-h-screen">
+<nav class="bg-stone-200 shadow-xl sticky top-0 z-10">
+    <ul class="flex gap-x-2 px-4 py-2 items-center justify-between">
         <div>
-            <li class="text-3xl text-red-700 font-bold mr-2">
-                PRODUCTS PAGE
+            <li class="text-3xl text-slate-700 font-bold mr-2">
+                <a href="/">
+                    PRODUCTS
+                </a>
             </li>
         </div>
         <div class="flex gap-x-2 items-center">
-            <li class="font-bold text-white bg-blue-500 hover:bg-blue-800 rounded py-1 px-2">
-                <a href="/">
-                    Products
+            <li class="font-bold text-white bg-green-500 hover:bg-blue-800 rounded py-1 px-2">
+                <a href="/add-product">
+                    ADD
                 </a>
             </li>
-            <li class="font-bold text-white bg-blue-500 hover:bg-blue-800 rounded py-1 px-2">
-                <a href="/add-product">
-                    Add Product
+            <li class="font-bold text-white bg-red-500 hover:bg-blue-800 rounded py-1 px-2">
+                <a href="/delete-product">
+                    MASS DELETE
                 </a>
             </li>
         </div>

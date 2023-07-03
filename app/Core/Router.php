@@ -14,6 +14,7 @@ class Router
         $dispatcher = simpleDispatcher(function (RouteCollector $router) {
             $router->addRoute('GET', '/', [ProductController::class, 'index']);
             $router->addRoute('GET', '/add-product', [ProductController::class, 'addProduct']);
+            $router->addRoute('POST', '/add-product', [ProductController::class, 'store']);
         });
 
         $httpMethod = $_SERVER['REQUEST_METHOD'];

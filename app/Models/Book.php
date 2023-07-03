@@ -4,18 +4,19 @@ namespace App\Models;
 
 use App\Repositories\PdoProductRepository;
 
-class Dvd extends Product
+class Book extends Product
 {
-    private string $size;
+    private string $weight;
 
     public function __construct(int $sku, string $name, float $price)
     {
         parent::__construct($sku, $name, $price);
-        $this->size = $_POST['size'];
+        $this->weight = $_POST['weight'];
     }
-    public function getSize(): string
+
+    public function getWeight(): string
     {
-        return $this->size;
+        return $this->weight;
     }
 
     public function save()
@@ -25,14 +26,14 @@ class Dvd extends Product
                 'sku' => '?',
                 'name' => '?',
                 'price' => '?',
-                'size' => '?',
+                'weight' => '?',
                 'type' => '?'
             ])
             ->setParameter(0, $this->getSku())
             ->setParameter(1, $this->getName())
             ->setParameter(2, $this->getPrice())
-            ->setParameter(3, $this->getSize())
-            ->setParameter(4, 'dvd')
+            ->setParameter(3, $this->getWeight())
+            ->setParameter(4, 'book')
             ->executeQuery();
     }
 }

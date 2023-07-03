@@ -1,36 +1,94 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-<div class="flex justify-center items-center">
-    <form id="product_form" class="mt-10 w-max p-4 rounded">
-        <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
-        <div class="flex mb-2 justify-between">
-            <label class="" for="sku">SKU</label>
-            <input id="sku" name="sku" type="text" class="border ml-2">
-        </div>
-        <div class="flex mb-2 justify-between">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" class="border ml-2">
-        </div>
+    <div class="flex justify-center items-center">
+        <form id="product_form" class="mt-10 w-max p-4 rounded" action="/add-product" method="POST">
+            <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
+            <div class="flex mb-2 justify-between">
+                <label class="" for="sku">SKU</label>
+                <input id="sku" name="sku" type="text" class="border ml-2">
+            </div>
+            <div class="flex mb-2 justify-between">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" class="border ml-2">
+            </div>
 
-        <div class="flex mb-2 justify-between">
-            <label for="price">Price ($)</label>
-            <input id="price" name="price" type="text" class="border ml-2">
-        </div>
+            <div class="flex mb-2 justify-between">
+                <label for="price">Price ($)</label>
+                <input id="price" name="price" type="text" class="border ml-2">
+            </div>
 
-        <div class="flex mb-2 justify-between">
-            <label for="productType" class="">Choose product type:</label>
-            <select id="productType" name="productType" class="border rounded">
-                <option value="" class="text-gray-200">Select</option>
-                <option value="Book">Book</option>
-                <option value="DVD">DVD</option>
-                <option value="Furniture">Furniture</option>
-            </select>
-        </div>
+            <div class="flex mb-2 justify-between">
+                <label for="productType" class="">Choose product type:</label>
+                <select id="productType" name="productType" class="border rounded">
+                    <option value="" class="text-gray-200">Select</option>
+                    <option value="Book">Book</option>
+                    <option value="DVD">DVD</option>
+                    <option value="Furniture">Furniture</option>
+                </select>
+            </div>
 
-        <div class="flex justify-center items-center">
-            <button class="mt-4 text-white font-bold bg-blue-500 px-2 rounded">Submit</button>
-        </div>
-    </form>
-</div>
+            <div id="bookFields" class="flex mb-2 justify-between" style="display: none;">
+                <label for="weight">Weight</label>
+                <input id="weight" name="weight" type="text" class="border ml-2">
+            </div>
+
+            <div id="dvdFields" style="display: none;">
+                <div class="flex mb-2 justify-between">
+                    <label for="size">Size (MB)</label>
+                    <input id="size" name="size" type="text" class="border ml-2">
+                </div>
+            </div>
+
+            <div id="furnitureFields" style="display: none;">
+                <div class="flex mb-2 justify-between">
+                    <label for="width">Width</label>
+                    <input id="width" name="width" type="text" class="border ml-2">
+                </div>
+
+                <div class="flex mb-2 justify-between">
+                    <label for="length">Length</label>
+                    <input id="length" name="length" type="text" class="border ml-2">
+                </div>
+
+                <div class="flex mb-2 justify-between">
+                    <label for="height">Height</label>
+                    <input id="height" name="height" type="text" class="border ml-2">
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center">
+                <button class="mt-4 text-white font-bold bg-blue-500 px-2 rounded">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const productTypeSelect = document.getElementById('productType');
+        const bookFields = document.getElementById('bookFields');
+        const dvdFields = document.getElementById('dvdFields');
+        const furnitureFields = document.getElementById('furnitureFields');
+
+        productTypeSelect.addEventListener('change', function () {
+            const selectedType = productTypeSelect.value;
+
+            if (selectedType === 'Book') {
+                bookFields.style.display = 'flex';
+                dvdFields.style.display = 'none';
+                furnitureFields.style.display = 'none';
+            } else if (selectedType === 'DVD') {
+                bookFields.style.display = 'none';
+                dvdFields.style.display = 'block';
+                furnitureFields.style.display = 'none';
+            } else if (selectedType === 'Furniture') {
+                bookFields.style.display = 'none';
+                dvdFields.style.display = 'none';
+                furnitureFields.style.display = 'block';
+            } else {
+                bookFields.style.display = 'none';
+                dvdFields.style.display = 'none';
+                furnitureFields.style.display = 'none';
+            }
+        });
+    </script>
 {% endblock %}

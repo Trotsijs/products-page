@@ -5,6 +5,9 @@ use App\Core\Router;
 
 require '../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
 $response = Router::response();
 $renderer = new Renderer(__DIR__ . '/../App/Views');
 
