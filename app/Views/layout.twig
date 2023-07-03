@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Products Page</title>
+</head>
+<body>
+<nav class="bg-slate-200 shadow-xl">
+    <ul class="flex gap-x-2 p-4 items-center justify-between">
+        <div>
+            <li class="text-3xl text-red-700 font-bold mr-2">
+                PRODUCTS PAGE
+            </li>
+        </div>
+        <div class="flex gap-x-2 items-center">
+            <li class="font-bold text-white bg-blue-500 hover:bg-blue-800 rounded py-1 px-2">
+                <a href="/">
+                    Products
+                </a>
+            </li>
+            <li class="font-bold text-white bg-blue-500 hover:bg-blue-800 rounded py-1 px-2">
+                <a href="/add-product">
+                    Add Product
+                </a>
+            </li>
+        </div>
+    </ul>
+</nav>
+{% block content %} {% endblock %}
+
+</body>
+</html>

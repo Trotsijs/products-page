@@ -1,0 +1,36 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="flex justify-center items-center">
+    <form id="product_form" class="mt-10 w-max p-4 rounded">
+        <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
+        <div class="flex mb-2 justify-between">
+            <label class="" for="sku">SKU</label>
+            <input id="sku" name="sku" type="text" class="border ml-2">
+        </div>
+        <div class="flex mb-2 justify-between">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" class="border ml-2">
+        </div>
+
+        <div class="flex mb-2 justify-between">
+            <label for="price">Price ($)</label>
+            <input id="price" name="price" type="text" class="border ml-2">
+        </div>
+
+        <div class="flex mb-2 justify-between">
+            <label for="productType" class="">Choose product type:</label>
+            <select id="productType" name="productType" class="border rounded">
+                <option value="" class="text-gray-200">Select</option>
+                <option value="Book">Book</option>
+                <option value="DVD">DVD</option>
+                <option value="Furniture">Furniture</option>
+            </select>
+        </div>
+
+        <div class="flex justify-center items-center">
+            <button class="mt-4 text-white font-bold bg-blue-500 px-2 rounded">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
