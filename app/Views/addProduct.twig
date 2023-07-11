@@ -1,7 +1,6 @@
 {% extends 'layout.twig' %}
-
 {% block content %}
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center" x-data="{ selectedProductType: '' }">
         <form id="product_form" class="mt-10 w-max p-4 rounded" action="/add-product" method="POST">
             <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
             <div class="flex mb-2 justify-between">
@@ -20,7 +19,7 @@
 
             <div class="flex mb-2 justify-between">
                 <label for="productType" class="">Choose product type:</label>
-                <select id="productType" name="productType" class="border rounded">
+                <select id="productType" name="productType" class="border rounded" x-model="selectedProductType">
                     <option value="" class="text-gray-200">Select</option>
                     <option value="Book">Book</option>
                     <option value="DVD">DVD</option>
@@ -28,19 +27,19 @@
                 </select>
             </div>
 
-            <div id="bookFields" class="flex mb-2 justify-between" style="display: none;">
+            <div id="bookFields" class="flex mb-2 justify-between" x-show="selectedProductType === 'Book'">
                 <label for="weight">Weight</label>
                 <input id="weight" name="weight" type="text" class="border ml-2">
             </div>
 
-            <div id="dvdFields" style="display: none;">
+            <div id="dvdFields" x-show="selectedProductType === 'DVD'">
                 <div class="flex mb-2 justify-between">
                     <label for="size">Size (MB)</label>
                     <input id="size" name="size" type="text" class="border ml-2">
                 </div>
             </div>
 
-            <div id="furnitureFields" style="display: none;">
+            <div id="furnitureFields" x-show="selectedProductType === 'Furniture'">
                 <div class="flex mb-2 justify-between">
                     <label for="width">Width</label>
                     <input id="width" name="width" type="text" class="border ml-2">
@@ -62,33 +61,4 @@
             </div>
         </form>
     </div>
-
-    <script>
-        const productTypeSelect = document.getElementById('productType');
-        const bookFields = document.getElementById('bookFields');
-        const dvdFields = document.getElementById('dvdFields');
-        const furnitureFields = document.getElementById('furnitureFields');
-
-        productTypeSelect.addEventListener('change', function () {
-            const selectedType = productTypeSelect.value;
-
-            if (selectedType === 'Book') {
-                bookFields.style.display = 'flex';
-                dvdFields.style.display = 'none';
-                furnitureFields.style.display = 'none';
-            } else if (selectedType === 'DVD') {
-                bookFields.style.display = 'none';
-                dvdFields.style.display = 'block';
-                furnitureFields.style.display = 'none';
-            } else if (selectedType === 'Furniture') {
-                bookFields.style.display = 'none';
-                dvdFields.style.display = 'none';
-                furnitureFields.style.display = 'block';
-            } else {
-                bookFields.style.display = 'none';
-                dvdFields.style.display = 'none';
-                furnitureFields.style.display = 'none';
-            }
-        });
-    </script>
 {% endblock %}

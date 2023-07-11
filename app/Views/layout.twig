@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js"></script>
     <title>Products Page</title>
 </head>
 <body class="bg-gradient-to-b from-stone-200 to-slate-400 min-h-screen">
@@ -25,9 +26,9 @@
                 </a>
             </li>
             <li class="font-bold text-white bg-red-500 hover:bg-blue-800 rounded py-1 px-2">
-                <a href="/delete-product">
+                <button class="delete-product-btn" type="submit" form="delete">
                     MASS DELETE
-                </a>
+                </button>
             </li>
         </div>
     </ul>

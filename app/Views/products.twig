@@ -2,27 +2,27 @@
 
 {% block content %}
     <div class="mt-10 my-4 flex justify-center">
-        <form action="/delete-product" method="post">
+        <form action="/delete" method="post" id="delete">
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {% for product in products %}
                     <div class="text-slate-600 shadow-xl font-semibold bg-slate-200 border w-56 h-36 text-center p-4 relative mb-4 mx-2 rounded-xl">
-                        <input type="checkbox" id="product_{{ product.id }}" name="selectedProducts[]" class="absolute top-0 left-0 mt-2 ml-2">
+                        <label for="delete-checkbox"></label>
+                        <input type="checkbox" id="delete-checkbox" name="delete-checkbox[]" class="absolute top-0 left-0 mt-2 ml-2" value="{{ product.sku }}">
                         <div class="text-slate-400"># {{ product.sku }}</div>
                         <div class="text-purple-800">{{ product.name }}</div>
                         <div>$ {{ product.price }}</div>
-                        {% if product.type == 'dvd' %}
-                            <div>Size: {{ product.size }}MB</div>
-                        {% elseif product.type == 'book' %}
-                            <div>Weight: {{ product.weight }}KG</div>
-                        {% elseif product.type == 'furniture' %}
-                            <div>Dimensions: {{ product.dimensions }}</div>
-                        {% endif %}
+                        <div x-data="{ product.type: '' }">
+                            {% if product.type == 'dvd' %}
+                                <div x-show="productType === 'dvd'">Size: {{ product.size }}MB</div>
+                            {% elseif product.type == 'book' %}
+                                <div x-show="productType === 'book'">Weight: {{ product.weight }}KG</div>
+                            {% elseif product.type == 'furniture' %}
+                                <div x-show="productType === 'furniture'">Dimensions: {{ product.dimensions }}</div>
+                            {% endif %}
+                        </div>
                     </div>
                 {% endfor %}
             </div>
-{#            <button type="submit" class="font-bold text-white bg-red-500 hover:bg-blue-800 rounded py-1 px-2 mt-4">#}
-{#                MASS DELETE#}
-{#            </button>#}
         </form>
     </div>
 {% endblock %}

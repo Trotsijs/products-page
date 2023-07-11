@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use FastRoute\Route;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 

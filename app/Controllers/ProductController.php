@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\TwigView;
+use App\Models\Product;
 use App\Repositories\PdoProductRepository;
 
 class ProductController
@@ -65,6 +66,16 @@ class ProductController
 
     public function delete()
     {
+        $selectedProducts = $_POST['delete-checkbox'];
 
+        foreach ($selectedProducts as $sku) {
+            (new PdoProductRepository)->queryBuilder()
+                ->delete('products')
+                ->where('sku = :sku')
+                ->setParameter('sku', $sku)
+                ->executeStatement();
+        }
+
+        header('Location: /');
     }
 }

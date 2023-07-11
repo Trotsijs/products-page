@@ -15,6 +15,7 @@ class Router
             $router->addRoute('GET', '/', [ProductController::class, 'index']);
             $router->addRoute('GET', '/add-product', [ProductController::class, 'addProduct']);
             $router->addRoute('POST', '/add-product', [ProductController::class, 'store']);
+            $router->addRoute('POST', '/delete', [ProductController::class, 'delete']);
         });
 
         $httpMethod = $_SERVER['REQUEST_METHOD'];
