@@ -13,6 +13,7 @@ class Dvd extends Product
         parent::__construct($sku, $name, $price);
         $this->size = $_POST['size'];
     }
+
     public function getSize(): string
     {
         return $this->size;
@@ -26,7 +27,7 @@ class Dvd extends Product
                 'name' => '?',
                 'price' => '?',
                 'size' => '?',
-                'type' => '?'
+                'type' => '?',
             ])
             ->setParameter(0, $this->getSku())
             ->setParameter(1, $this->getName())

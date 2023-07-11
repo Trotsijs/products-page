@@ -7,7 +7,8 @@
                 {% for product in products %}
                     <div class="text-slate-600 shadow-xl font-semibold bg-slate-200 border w-56 h-36 text-center p-4 relative mb-4 mx-2 rounded-xl">
                         <label for="delete-checkbox"></label>
-                        <input type="checkbox" id="delete-checkbox" name="delete-checkbox[]" class="absolute top-0 left-0 mt-2 ml-2" value="{{ product.sku }}">
+                        <input type="checkbox" id="delete-checkbox" name="delete-checkbox[]"
+                               class="absolute top-0 left-0 mt-2 ml-2" value="{{ product.sku }}">
                         <div class="text-slate-400"># {{ product.sku }}</div>
                         <div class="text-purple-800">{{ product.name }}</div>
                         <div>$ {{ product.price }}</div>

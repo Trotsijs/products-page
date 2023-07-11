@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\TwigView;
-use App\Models\Product;
 use App\Repositories\PdoProductRepository;
 
 class ProductController

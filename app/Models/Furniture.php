@@ -31,7 +31,7 @@ class Furniture extends Product
                 'name' => '?',
                 'price' => '?',
                 'dimensions' => '?',
-                'type' => '?'
+                'type' => '?',
             ])
             ->setParameter(0, $this->getSku())
             ->setParameter(1, $this->getName())

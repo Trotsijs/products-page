@@ -27,7 +27,7 @@ class Book extends Product
                 'name' => '?',
                 'price' => '?',
                 'weight' => '?',
-                'type' => '?'
+                'type' => '?',
             ])
             ->setParameter(0, $this->getSku())
             ->setParameter(1, $this->getName())

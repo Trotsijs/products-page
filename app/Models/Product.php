@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-class Product {
+class Product
+{
 
     private int $sku;
     private string $name;
     private float $price;
-    public function __construct(int $sku, string $name, float $price) {
+
+    public function __construct(int $sku, string $name, float $price)
+    {
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
