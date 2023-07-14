@@ -5,6 +5,7 @@
 <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL"></a>
 </p>
 <p align="center">[ <a href="https://products-akermanis.000webhostapp.com">LIVE VERSION</a> ]</p>
+
 ### About:
 
 This is a simple products page with CRUD functionality and is based on the MVC pattern. <br>
