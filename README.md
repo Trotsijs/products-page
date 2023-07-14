@@ -1,10 +1,10 @@
-# <p align="center">Products page</p>
-<p align="center"><a href="https://products-akermanis.000webhostapp.com">LIVE VERSION</a></p>
+<h1 align="center">Products page</h1>
+
 <p align="center">
 <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7.4-grey?labelColor=777BB4" alt="PHP 7.4"></a>
 <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL"></a>
 </p>
-
+<p align="center">[ <a href="https://products-akermanis.000webhostapp.com">LIVE VERSION</a> ]</p>
 ### About:
 
 This is a simple products page with CRUD functionality and is based on the MVC pattern. <br>
