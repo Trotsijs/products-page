@@ -1,4 +1,5 @@
 # <p align="center">Products page</p>
+<p align="center"><a href="https://products-akermanis.000webhostapp.com">LIVE VERSION</a></p>
 <p align="center">
 <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7.4-grey?labelColor=777BB4" alt="PHP 7.4"></a>
 <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL"></a>
@@ -8,10 +9,9 @@
 
 This is a simple products page with CRUD functionality and is based on the MVC pattern. <br>
 
-Add new products by entering #sku, #name, #price and #type. <br>
+Add new products by pressing "<b>ADD</b>" button and fill the form by entering <b>#sku</b>, <b>#name</b>, <b>#price</b> and <b>#type</b>. <br>
 Based on the type of the product, additional fields will be displayed. <br>
-
-[Products page](https://products-akermanis.000webhostapp.com/) <- here you can see the live version of the project. <br>
+Mass delete selected products by clicking on the "<b>MASS DELETE</b>" button. <br>
 
 ### Preview:
 
