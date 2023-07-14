@@ -17,6 +17,8 @@ class Renderer
 
     public function render(TwigView $twigView): string
     {
+        $errors = $_SESSION['errors'] ?? null;
+        $this->twig->addGlobal('errors', $errors);
         return $this->twig->render($twigView->getPath() . '.twig', $twigView->getData());
     }
 }

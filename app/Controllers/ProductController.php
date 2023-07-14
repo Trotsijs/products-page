@@ -2,11 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Core\Redirect;
 use App\Core\TwigView;
+use App\Core\Validator;
+use App\Exceptions\ValidationException;
 use App\Repositories\PdoProductRepository;
+use Exception;
 
 class ProductController
 {
+    private Validator $validator;
+
+    public function __construct()
+    {
+        $this->validator = new Validator;
+    }
     public function index(): TwigView
     {
         $products = (new PdoProductRepository)->queryBuilder()
@@ -24,24 +34,37 @@ class ProductController
 
     }
 
-    public function store()
+    public function store(): Redirect
     {
-        $sku = $_POST['sku'];
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $type = $_POST['productType'];
+        try {
 
-        $product = $this->createProduct($type, $sku, $name, $price);
+            $this->validator->validateAddProductForm();
+            $sku = $_POST['sku'];
+            $name = $_POST['name'];
+            $price = $_POST['price'];
+            $type = $_POST['productType'];
 
-        if ($product) {
-            $this->setProductAttributes($product, $_POST);
-            $product->save();
+            $product = $this->createProduct($type, $sku, $name, $price);
+
+            if ($product) {
+                $this->setProductAttributes($product, $_POST);
+                $product->save();
+            }
+
+            return new Redirect('/');
+
+        } catch (ValidationException $exception) {
+            $_SESSION['errors'] = $this->validator->getErrors();
+//            var_dump($_SESSION['errors']);die;
+            return new Redirect('/add-product');
+
+        } catch (Exception $exception) {
+            return new Redirect('/add-product');
         }
 
-        header('Location: /');
     }
 
-    private function createProduct($type, $sku, $name, $price)
+    private function createProduct($type, $sku, $name, $price): ?object
     {
         $productClass = "App\\Models\\" . $type;
 

@@ -5,33 +5,59 @@
             <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
             <div class="flex mb-2 justify-between">
                 <label class="" for="sku">SKU</label>
-                <input id="sku" name="sku" type="text" class="border ml-2" required>
+                <input id="sku" name="sku" type="text" class="border ml-2">
             </div>
+            {% if errors.sku %}
+                <div class="text-right">
+                    <p class="bg-red-200 px-1 inline-block rounded text-sm text-red-500 mb-2">
+                        {{ errors.sku }}
+                    </p>
+                </div>
+            {% endif %}
             <div class="flex mb-2 justify-between">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" class="border ml-2" required>
+                <input id="name" name="name" type="text" class="border ml-2">
             </div>
-
+            {% if errors %}
+                <div class="text-right">
+                    <p class="bg-red-200 px-1 inline-block rounded text-sm text-red-500 mb-2">
+                        {{ errors.name }}
+                    </p>
+                </div>
+            {% endif %}
             <div class="flex mb-2 justify-between">
                 <label for="price">Price ($)</label>
-                <input id="price" name="price" type="text" class="border ml-2" required>
+                <input id="price" name="price" type="text" class="border ml-2">
             </div>
-
+            {% if errors %}
+                <div class="text-right">
+                    <p class="bg-red-200 px-1 inline-block rounded text-sm text-red-500 mb-2">
+                        {{ errors.price }}
+                    </p>
+                </div>
+            {% endif %}
             <div class="flex mb-2 justify-between">
                 <label for="productType" class="">Choose product type:</label>
-                <select id="productType" name="productType" class="border rounded" x-model="selectedProductType" required>
+                <select id="productType" name="productType" class="border rounded" x-model="selectedProductType">
                     <option value="" class="text-gray-200">Select</option>
                     <option value="Book">Book</option>
                     <option value="Dvd">DVD</option>
                     <option value="Furniture">Furniture</option>
                 </select>
             </div>
+            {% if errors %}
+                <div class="text-right">
+                    <p class="bg-red-200 px-1 inline-block rounded text-sm text-red-500 mb-2">
+                        {{ errors.productType }}
+                    </p>
+                </div>
+            {% endif %}
 
             <div id="bookFields" x-show="selectedProductType === 'Book'">
                 <p class="my-2 bg-orange-100 px-1 rounded">Please provide the Book weight in KG</p>
                 <div class="flex mb-2 justify-between">
-                <label for="weight">Weight</label>
-                <input id="weight" name="weight" type="text" class="border ml-2">
+                    <label for="weight">Weight</label>
+                    <input id="weight" name="weight" type="text" class="border ml-2">
                 </div>
             </div>
 

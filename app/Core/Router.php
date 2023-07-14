@@ -9,7 +9,7 @@ use function FastRoute\simpleDispatcher;
 
 class Router
 {
-    public static function response(): ?TwigView
+    public static function response(): ?Response
     {
         $dispatcher = simpleDispatcher(function (RouteCollector $router) {
             $router->addRoute('GET', '/', [ProductController::class, 'index']);
