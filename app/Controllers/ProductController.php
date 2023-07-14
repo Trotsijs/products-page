@@ -55,7 +55,6 @@ class ProductController
 
         } catch (ValidationException $exception) {
             $_SESSION['errors'] = $this->validator->getErrors();
-//            var_dump($_SESSION['errors']);die;
             return new Redirect('/add-product');
 
         } catch (Exception $exception) {
