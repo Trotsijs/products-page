@@ -21,6 +21,7 @@ class ProductController
     public function addProduct(): TwigView
     {
         return new TwigView('addProduct', []);
+
     }
 
     public function store()

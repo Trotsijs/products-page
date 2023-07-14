@@ -6,15 +6,15 @@ use App\Repositories\PdoProductRepository;
 
 class Book extends Product
 {
-    private string $weight;
+    private float $weight;
 
-    public function __construct(int $sku, string $name, float $price)
+    public function __construct(string $sku, string $name, float $price)
     {
         parent::__construct($sku, $name, $price);
         $this->weight = $_POST['weight'];
     }
 
-    public function getWeight(): string
+    public function getWeight(): float
     {
         return $this->weight;
     }

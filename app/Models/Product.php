@@ -5,18 +5,18 @@ namespace App\Models;
 class Product
 {
 
-    private int $sku;
+    private string $sku;
     private string $name;
     private float $price;
 
-    public function __construct(int $sku, string $name, float $price)
+    public function __construct(string $sku, string $name, float $price)
     {
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
     }
 
-    public function getSku(): int
+    public function getSku(): string
     {
         return $this->sku;
     }

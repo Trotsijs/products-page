@@ -6,9 +6,9 @@ use App\Repositories\PdoProductRepository;
 
 class Furniture extends Product
 {
-    private float $width;
-    private float $length;
-    private float $height;
+    private string $width;
+    private string $length;
+    private string $height;
 
     public function __construct(string $sku, string $name, float $price)
     {

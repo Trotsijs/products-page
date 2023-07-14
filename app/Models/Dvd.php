@@ -6,15 +6,15 @@ use App\Repositories\PdoProductRepository;
 
 class Dvd extends Product
 {
-    private string $size;
+    private int $size;
 
-    public function __construct(int $sku, string $name, float $price)
+    public function __construct(string $sku, string $name, float $price)
     {
         parent::__construct($sku, $name, $price);
         $this->size = $_POST['size'];
     }
 
-    public function getSize(): string
+    public function getSize(): int
     {
         return $this->size;
     }

@@ -9,9 +9,9 @@ class Renderer
 {
     private Environment $twig;
 
-    public function __construct(string $basePath)
+    public function __construct()
     {
-        $loader = new FilesystemLoader($basePath);
+        $loader = new FilesystemLoader('../app/Views/');
         $this->twig = new Environment($loader);
     }
 

@@ -5,34 +5,38 @@
             <h1 class="bg-slate-200 text-center text-xl font-bold mb-2 rounded">Add New Product</h1>
             <div class="flex mb-2 justify-between">
                 <label class="" for="sku">SKU</label>
-                <input id="sku" name="sku" type="text" class="border ml-2">
+                <input id="sku" name="sku" type="text" class="border ml-2" required>
             </div>
             <div class="flex mb-2 justify-between">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" class="border ml-2">
+                <input id="name" name="name" type="text" class="border ml-2" required>
             </div>
 
             <div class="flex mb-2 justify-between">
                 <label for="price">Price ($)</label>
-                <input id="price" name="price" type="text" class="border ml-2">
+                <input id="price" name="price" type="text" class="border ml-2" required>
             </div>
 
             <div class="flex mb-2 justify-between">
                 <label for="productType" class="">Choose product type:</label>
-                <select id="productType" name="productType" class="border rounded" x-model="selectedProductType">
+                <select id="productType" name="productType" class="border rounded" x-model="selectedProductType" required>
                     <option value="" class="text-gray-200">Select</option>
                     <option value="Book">Book</option>
-                    <option value="DVD">DVD</option>
+                    <option value="Dvd">DVD</option>
                     <option value="Furniture">Furniture</option>
                 </select>
             </div>
 
-            <div id="bookFields" class="flex mb-2 justify-between" x-show="selectedProductType === 'Book'">
+            <div id="bookFields" x-show="selectedProductType === 'Book'">
+                <p class="my-2 bg-orange-100 px-1 rounded">Please provide the Book weight in KG</p>
+                <div class="flex mb-2 justify-between">
                 <label for="weight">Weight</label>
                 <input id="weight" name="weight" type="text" class="border ml-2">
+                </div>
             </div>
 
-            <div id="dvdFields" x-show="selectedProductType === 'DVD'">
+            <div id="dvdFields" x-show="selectedProductType === 'Dvd'">
+                <p class="my-2 bg-orange-100 px-1 rounded">Please provide the DVD size in MB</p>
                 <div class="flex mb-2 justify-between">
                     <label for="size">Size (MB)</label>
                     <input id="size" name="size" type="text" class="border ml-2">
@@ -40,6 +44,7 @@
             </div>
 
             <div id="furnitureFields" x-show="selectedProductType === 'Furniture'">
+                <p class="my-2 bg-orange-100 px-1 rounded">Please provide the Furniture dimensions in WxLxH</p>
                 <div class="flex mb-2 justify-between">
                     <label for="width">Width</label>
                     <input id="width" name="width" type="text" class="border ml-2">
@@ -56,8 +61,9 @@
                 </div>
             </div>
 
-            <div class="flex justify-center items-center">
+            <div class="flex justify-center items-center gap-x-2">
                 <button class="mt-4 text-white font-bold bg-blue-500 px-2 rounded">Save</button>
+                <a href="/" class="mt-4 text-white font-bold bg-red-500 px-2 rounded">Cancel</a>
             </div>
         </form>
     </div>
